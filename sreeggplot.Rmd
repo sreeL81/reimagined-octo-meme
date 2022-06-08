@@ -1,0 +1,48 @@
+---
+title: "Sree Notebook"
+output: html_notebook
+---
+```{r}
+library(readr)
+library(ggplot2)
+library(plotly)
+```
+
+
+Data
+```{r}
+library(readr)
+adae <- read_csv("https://raw.githubusercontent.com/RhoInc/data-library/master/data/clinical-trials/adam/adae.csv")
+adae
+```
+
+ggplot
+```{r}
+
+
+library(ggplot2)
+
+ggplot(adae) +
+ aes(x = AESEV, y = AGE, fill = SEX) +
+ geom_boxplot(shape = "circle") +
+ scale_fill_hue(direction = 1) +
+ theme_minimal()
+
+
+```
+
+
+
+plotly
+```{r}
+p<-ggplot(adae) +
+ aes(x = AESEV, y = AGE, fill = SEX) +
+ geom_boxplot(shape = "circle") +
+ scale_fill_hue(direction = 1) +
+ theme_minimal()
+ggplotly(p)
+```
+
+
+
+ 
